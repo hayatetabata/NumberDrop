@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212104669792266752}
   - component: {fileID: 222008471726675170}
   - component: {fileID: 58841216672473732}
+  - component: {fileID: 114712455163737006}
   m_Layer: 0
   m_Name: Elixer
   m_TagString: Untagged
@@ -73,7 +74,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -149,6 +150,18 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 1
+--- !u!114 &114712455163737006
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1332199756639064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c12e770a6604427a87b7d69c43ef68c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  __speed: 0.03
 --- !u!212 &212104669792266752
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -245,7 +258,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.191, y: 2.222}
+  m_AnchoredPosition: {x: -0.65, y: -11.049999}
   m_SizeDelta: {x: 0.6592, y: 0.7233}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224395086755639506
