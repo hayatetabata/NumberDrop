@@ -2,6 +2,7 @@
 
 public abstract class BaseObject : MonoBehaviour {
 
+    public int __power = 0;
     public float __speed;
 
     protected void Move(Vector2 dist, float speed)
