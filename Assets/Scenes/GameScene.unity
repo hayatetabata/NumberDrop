@@ -122,11 +122,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4377122605072362, guid: 2814bfd1be8f74b1e92c825769be3a5a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.61
+      value: 0.73
       objectReference: {fileID: 0}
     - target: {fileID: 4377122605072362, guid: 2814bfd1be8f74b1e92c825769be3a5a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -2.039
+      value: -8.16
       objectReference: {fileID: 0}
     - target: {fileID: 4377122605072362, guid: 2814bfd1be8f74b1e92c825769be3a5a, type: 2}
       propertyPath: m_LocalPosition.z
@@ -157,6 +157,10 @@ Prefab:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4377122605072362, guid: 2814bfd1be8f74b1e92c825769be3a5a, type: 2}
+      propertyPath: m_LocalScale.y
+      value: -0.5241175
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2814bfd1be8f74b1e92c825769be3a5a, type: 2}
   m_IsPrefabAsset: 0
@@ -171,7 +175,6 @@ GameObject:
   - component: {fileID: 185773117}
   - component: {fileID: 185773118}
   - component: {fileID: 185773120}
-  - component: {fileID: 185773121}
   - component: {fileID: 185773122}
   m_Layer: 0
   m_Name: Player
@@ -249,7 +252,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.07, y: 3.61}
+  m_AnchoredPosition: {x: -0.11, y: 3.63}
   m_SizeDelta: {x: 0.65, y: 0.65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &185773120
@@ -264,26 +267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   power: 2
---- !u!50 &185773121
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 185773116}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  speed: 0.03
 --- !u!58 &185773122
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -826,12 +810,12 @@ Prefab:
     - target: {fileID: 224148771085360568, guid: 7e71e67070de84791a0bbf6adb66d901,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -0.191
+      value: -0.65
       objectReference: {fileID: 0}
     - target: {fileID: 224148771085360568, guid: 7e71e67070de84791a0bbf6adb66d901,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 2.222
+      value: -6.9199996
       objectReference: {fileID: 0}
     - target: {fileID: 224148771085360568, guid: 7e71e67070de84791a0bbf6adb66d901,
         type: 2}
