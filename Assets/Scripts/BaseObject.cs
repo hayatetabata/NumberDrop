@@ -10,4 +10,6 @@ public abstract class BaseObject : MonoBehaviour {
         Vector2 newPos = pos + dist.normalized * speed;
         transform.position = newPos;
     }
+
+    protected abstract void OnTriggerEnter2D(Collider2D collision);
 }

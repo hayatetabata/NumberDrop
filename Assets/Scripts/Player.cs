@@ -11,4 +11,9 @@ public class Player : BaseObject {
             Move(dist, __speed);
         }
     }
+
+    protected override void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("Enter");
+    }
 }

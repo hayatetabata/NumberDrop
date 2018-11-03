@@ -7,4 +7,9 @@ public class Elixer : BaseObject {
         Vector2 dist = new Vector2(0f, +1f);
         Move(dist, __speed);	
 	}
+
+    protected override void OnTriggerEnter2D(Collider2D collision)
+    {
+        Destroy(gameObject);
+    }
 }

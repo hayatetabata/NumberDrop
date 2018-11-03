@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 222008471726675170}
   - component: {fileID: 58841216672473732}
   - component: {fileID: 114712455163737006}
+  - component: {fileID: 50210087667732350}
   m_Layer: 0
   m_Name: Elixer
   m_TagString: Untagged
@@ -65,6 +66,26 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!50 &50210087667732350
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1332199756639064}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!58 &58841216672473732
 CircleCollider2D:
   m_ObjectHideFlags: 1
