@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 50210087667732350}
   m_Layer: 0
   m_Name: Elixer
-  m_TagString: Untagged
+  m_TagString: Elixer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -182,6 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c12e770a6604427a87b7d69c43ef68c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  __power: 1
   __speed: 0.03
 --- !u!212 &212104669792266752
 SpriteRenderer:
