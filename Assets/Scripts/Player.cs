@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class Player : BaseObject {
 
     public Text __number_text;
+    public GameController gameController;
 
 	// Update is called once per frame
 	void Update () {
@@ -33,6 +34,7 @@ public class Player : BaseObject {
         if (__power <= 0)
         {
             Destroy(gameObject);
+            gameController.OverGame();
         }
     }
 }
