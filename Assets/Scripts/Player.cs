@@ -7,9 +7,6 @@ public class Player : BaseObject {
 
 	// Update is called once per frame
 	void Update () {
-        if (__power <= 0) {
-            Destroy(gameObject);
-        }
         __number_text.text = __power.ToString();
 
         if (Camera.main.transform.position.y < transform.position.y) {
@@ -32,5 +29,10 @@ public class Player : BaseObject {
                 throw new System.Exception(msg);
         }
         Debug.Log("Current power is " + __power.ToString());
+
+        if (__power <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }

@@ -8,8 +8,10 @@ public class Elixer : BaseObject {
         Move(dist, __speed);	
 	}
 
-    protected override void OnTriggerEnter2D(Collider2D collision)
+    protected override void OnTriggerEnter2D(Collider2D c)
     {
-        Destroy(gameObject);
+        if (c.tag == "Player") {
+            Destroy(gameObject);
+        }
     }
 }
