@@ -9,6 +9,7 @@ public class Player : BaseObject {
     Vector2 __touch_src;
     float __mix_x;
     float __max_x;
+    int __score = 0;
 
     // Initialize properties
     void Start()
@@ -74,20 +75,26 @@ public class Player : BaseObject {
         switch (c.tag) {
             case "Elixer":
                 this.__power += c.GetComponent<Elixer>().__power;
+                __score += __power;
                 break;
             case "Block":
                 this.__power -= c.GetComponent<Block>().__power;
+                __score += __power;
                 break;
             default:
                 string msg = "Invalid base object is entered";
                 throw new System.Exception(msg);
         }
-        Debug.Log("Current power is " + __power.ToString());
 
-        if (__power <= 0)
-        {
+        if (__power <= 0) {
             Destroy(gameObject);
             gameController.OverGame();
         }
+        UpdateScore(__score);
+    }
+
+    void UpdateScore(int score)
+    {
+        PlayerPrefs.SetInt("score", score);
     }
 }
