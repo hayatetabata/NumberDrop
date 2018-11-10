@@ -5,7 +5,6 @@ public class ElixerGenerator : BaseObjectGenerator {
 
     public float __emittion_span;
     public float __fixed_y_coodinate;
-    public bool __generatable = true;
     float __elasped_time;
 
     // Update is called once per frame

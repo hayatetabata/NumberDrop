@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Elixer
   - Block
+  - Generator
   layers:
   - Default
   - TransparentFX

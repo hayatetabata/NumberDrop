@@ -6,7 +6,6 @@ public class BlockGenerator : BaseObjectGenerator {
 
     public float __emittion_span;
     public float __fixed_y_coodinate;
-    public bool __generatable = true;
     float __elasped_time;
 
     void Update()

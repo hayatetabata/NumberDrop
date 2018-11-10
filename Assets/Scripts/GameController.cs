@@ -29,7 +29,8 @@ public class GameController : MonoBehaviour {
 
     public void OverGame()
     {
-        //Stop all game object
+        StopGenerators();
+        StopAllObjects();
 
         score.gameObject.SetActive(false);
         modal.gameObject.SetActive(true);
@@ -39,5 +40,24 @@ public class GameController : MonoBehaviour {
     {
         __respawn_count = 0;
         PlayerPrefs.SetInt(__player_prefs_key, __respawn_count);
+    }
+
+    void StopGenerators()
+    {
+        GameObject[] generators = GameObject.FindGameObjectsWithTag("Generator");
+        foreach (GameObject generator in generators) {
+            generator.GetComponent<BaseObjectGenerator>().__generatable = false;
+        }
+    }
+
+    void StopAllObjects()
+    {
+        string[] tags = {"Elixer", "Block"};
+        foreach (string tagName in tags) {
+            GameObject[] objects = GameObject.FindGameObjectsWithTag(tagName);
+            foreach (GameObject obj in objects) {
+                obj.GetComponent<BaseObject>().__speed = 0f;
+            }
+        }
     }
 }

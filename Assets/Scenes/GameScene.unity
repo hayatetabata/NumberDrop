@@ -808,7 +808,7 @@ GameObject:
   - component: {fileID: 537737772}
   m_Layer: 0
   m_Name: ElixerGenerator
-  m_TagString: Untagged
+  m_TagString: Generator
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1238,7 +1238,7 @@ GameObject:
   - component: {fileID: 2096768733}
   m_Layer: 0
   m_Name: BlockGenerator
-  m_TagString: Untagged
+  m_TagString: Generator
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
