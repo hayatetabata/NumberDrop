@@ -23,6 +23,11 @@ public class Player : BaseObject {
     void Update () {
         __number_text.text = __power.ToString();
 
+        Vector3 scale = transform.localScale;
+        scale.x = scale.y = __power * 1.5f;
+        transform.localScale = scale;
+        
+
         if (Camera.main.transform.position.y < transform.position.y) {
             Vector2 dist = new Vector2(0f, -1f);
             Move(dist, __speed);
