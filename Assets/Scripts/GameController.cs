@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour {
 
     public void Start()
     {
+        PlayerPrefs.SetInt("score", 0);
         __respawn_count = PlayerPrefs.GetInt(__player_prefs_key);
         score.gameObject.SetActive(true);
     }
