@@ -14,6 +14,18 @@ public static class TouchDetector
 
     }
 
+    public static Vector2 GetTouchPosition()
+    {
+        if (Application.isEditor) {
+            return Input.mousePosition;
+        } else {
+            if (Input.touchCount > 0) {
+                return Input.GetTouch(0).position;
+            }
+            throw new System.Exception("The finger or cursor are not attaching now.");
+        }
+    }
+
     public static bool IsEventType(string eventName)
     {
         if (Application.isEditor)

@@ -5,8 +5,19 @@ public class Player : BaseObject {
 
     public Text __number_text;
     public GameController gameController;
-    Vector2 __src;
-    Vector2 __dist;
+
+    Vector2 __touch_src;
+    float __mix_x;
+    float __max_x;
+
+    // Initialize properties
+    void Start()
+    {
+        //TODO
+        //Specify both minX and maxX coodinate by screen width and player radius
+        __mix_x = -3f;
+        __max_x = 3f;
+    }
 
     // Update is called once per frame
     void Update () {
@@ -22,14 +33,35 @@ public class Player : BaseObject {
     {
         string touchType = TouchDetector.Detect();
         if (touchType == TouchEventKeys.IsTouched) {
-            //Update __src
-        }
+            if (__touch_src == new Vector2()) {
+                __touch_src = TouchDetector.GetTouchPosition();
+            }
+            Vector2 dist = TouchDetector.GetTouchPosition();
+            float diff = ToScreenScale(dist.x - __touch_src.x);
 
-        if (touchType == TouchEventKeys.WasTouched) {
-            //Diff __src and current pos
-            //Substitute diff to transform.pos
-            //Update __src by current pos
+            Vector2 newPos = transform.position;
+            newPos.x += diff;
+            transform.position = WithinScreen(newPos);
+
+            __touch_src = dist;
         }
+        if (touchType == TouchEventKeys.NotTouched) {
+            __touch_src = new Vector2();
+        }
+    }
+
+    float ToScreenScale(float src)
+    {
+        return src / 100;
+    }
+
+    Vector2 WithinScreen(Vector2 srcPos)
+    {
+        Vector2 distPos = new Vector2(
+            Mathf.Clamp(srcPos.x, __mix_x, __max_x),
+            srcPos.y
+        );
+        return distPos;
     }
 
     protected override void OnTriggerEnter2D(Collider2D c)
