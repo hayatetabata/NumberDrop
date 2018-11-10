@@ -5,7 +5,7 @@ public class Score : MonoBehaviour {
 
     public int __score = 0;
     Text __score_text;
-    const string prefix = "Score: ";
+    const string suffix = "pts";
 
 	// Use this for initialization
 	void Start () {
@@ -19,6 +19,6 @@ public class Score : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         __score = PlayerPrefs.GetInt("score");
-        __score_text.text = prefix + __score.ToString();
+        __score_text.text = __score.ToString() + suffix;
     }
 }
