@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class Block : BaseObject {
 
+    public Text __number_text;
     public BlockType __type = BlockType.__normal;
 
     void Start()
@@ -19,6 +21,9 @@ public class Block : BaseObject {
                 throw new System.Exception(msg);
         }
         transform.localScale = scale;
+
+        __power = Random.Range(1, 3);
+        __number_text.text = __power.ToString();
     }
 
     // Update is called once per frame
