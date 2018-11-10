@@ -1342,8 +1342,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   __generatable: 1
-  __emittion_span: 0
-  __fixed_y_coodinate: 0
+  __emittion_span: 2
+  __fixed_y_coodinate: -10
 --- !u!4 &2096768734
 Transform:
   m_ObjectHideFlags: 0

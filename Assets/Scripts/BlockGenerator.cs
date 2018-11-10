@@ -6,15 +6,21 @@ public class BlockGenerator : BaseObjectGenerator {
 
     public float __emittion_span;
     public float __fixed_y_coodinate;
+
     float __elasped_time;
 
     void Update()
     {
         __elasped_time += Time.deltaTime;
-        if (__generatable && __elasped_time > __emittion_span)
-        {
+        if (__generatable && __elasped_time > __emittion_span) {
             List<Vector2> map = CreateEmittionMap();
-            map.ForEach(pos => Generate(pos));
+            map.ForEach((pos) => {
+                if (map.Count == 1) {
+                    Generate(pos, true);
+                    return;
+                }
+                Generate(pos);
+            });
             ResetTime();
         }
     }
@@ -22,10 +28,14 @@ public class BlockGenerator : BaseObjectGenerator {
     protected override List<Vector2> CreateEmittionMap()
     {
         List<Vector2> map = new List<Vector2>();
+
+        Vector2 pos = new Vector2(Random.Range(-3f, 3f), __fixed_y_coodinate);
+        map.Add(pos);
+
         return map;
     }
 
-    protected override void Generate(Vector2 position)
+    protected void Generate(Vector2 position, bool isLong = false)
     {
         GameObject prefab = GetPrefab();
         Instantiate(prefab, position, Quaternion.identity);

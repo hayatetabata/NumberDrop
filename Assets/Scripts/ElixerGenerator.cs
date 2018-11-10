@@ -18,25 +18,19 @@ public class ElixerGenerator : BaseObjectGenerator {
 	}
 
     /* TODO
-     * Create Emittion map including vector2 positions.
-     * Correct X coodinate getting value between 0 and 1 on viewport.
+     * Not set fixed values but get x coodinate min and max by screen width
      */
     protected override List<Vector2> CreateEmittionMap()
     {
         List<Vector2> map = new List<Vector2>();
 
-        Vector2 pos = Camera.main.ViewportToWorldPoint(
-            new Vector2(
-                Random.Range(0f, 1f), 0f
-            )
-        );
-        pos.y = __fixed_y_coodinate;
+        Vector2 pos = new Vector2(Random.Range(-3f, 3f), __fixed_y_coodinate);
 
         map.Add(pos);
         return map;
     }
 
-    protected override void Generate(Vector2 position)
+    protected void Generate(Vector2 position)
     {
         GameObject prefab = GetPrefab();
         Instantiate(prefab, position, Quaternion.identity);

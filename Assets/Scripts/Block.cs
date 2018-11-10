@@ -2,14 +2,44 @@
 
 public class Block : BaseObject {
 
-	// Update is called once per frame
-	void Update () {
+    public BlockType __type = BlockType.__normal;
+
+    void Start()
+    {
+        Vector3 scale = transform.localScale;
+        switch (__type) {
+            case BlockType.__normal:
+                scale.x = 0.3f;
+                break;
+            case BlockType.__long:
+                scale.x = 3f;
+                break;
+            default:
+                string msg = "Invalid block type. type: " + __type.ToString();
+                throw new System.Exception(msg);
+        }
+        transform.localScale = scale;
+    }
+
+    // Update is called once per frame
+    void Update () {
         Vector2 dist = new Vector2(0f, +1f);
         Move(dist, __speed);
     }
 
-    protected override void OnTriggerEnter2D(Collider2D collision)
+    protected override void OnTriggerEnter2D(Collider2D c)
     {
-        Destroy(gameObject);
+        if (c.tag != "Player") {
+            return;
+        }
+
+        if (c.gameObject.GetComponent<Player>().__power > __power) {
+            Destroy(gameObject);
+        }
     }
+}
+
+public enum BlockType {
+    __normal,
+    __long
 }
