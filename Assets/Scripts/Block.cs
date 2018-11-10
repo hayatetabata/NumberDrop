@@ -22,7 +22,7 @@ public class Block : BaseObject {
         }
         transform.localScale = scale;
 
-        __power = Random.Range(1, 3);
+        __power = Random.Range(2, 4);
         __number_text.text = __power.ToString();
     }
 

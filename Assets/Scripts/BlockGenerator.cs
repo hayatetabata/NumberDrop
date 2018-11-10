@@ -15,10 +15,7 @@ public class BlockGenerator : BaseObjectGenerator {
         if (__generatable && __elasped_time > __emittion_span) {
             List<Vector2> map = CreateEmittionMap();
             map.ForEach((pos) => {
-                if (map.Count == 1) {
-                    Generate(pos, true);
-                    return;
-                }
+                //Generate a long type block
                 Generate(pos);
             });
             ResetTime();
@@ -35,10 +32,10 @@ public class BlockGenerator : BaseObjectGenerator {
         return map;
     }
 
-    protected void Generate(Vector2 position, bool isLong = false)
+    protected void Generate(Vector2 position)
     {
         GameObject prefab = GetPrefab();
-        Instantiate(prefab, position, Quaternion.identity);
+        GameObject obj = Instantiate(prefab, position, Quaternion.identity);
     }
 
     protected override string LoadPrefabPath()
