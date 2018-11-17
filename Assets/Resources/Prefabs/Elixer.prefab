@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   __power: 1
-  __speed: 0.05
+  __speed: 0.1
   __number_text: {fileID: 114486154884116440}
 --- !u!212 &212104669792266752
 SpriteRenderer:
