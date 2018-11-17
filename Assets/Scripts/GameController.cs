@@ -45,10 +45,7 @@ public class GameController : MonoBehaviour {
 
     void StopGenerators()
     {
-        GameObject[] generators = GameObject.FindGameObjectsWithTag("Generator");
-        foreach (GameObject generator in generators) {
-            generator.GetComponent<BaseObjectGenerator>().__generatable = false;
-        }
+        GameObject.FindObjectOfType<WaveGenerator>().__generatable = false;
     }
 
     void StopAllObjects()
