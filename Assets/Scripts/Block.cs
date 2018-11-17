@@ -4,24 +4,9 @@ using UnityEngine.UI;
 public class Block : BaseObject {
 
     public Text __number_text;
-    public BlockType __type = BlockType.__normal;
 
     void Start()
     {
-        Vector3 scale = transform.localScale;
-        switch (__type) {
-            case BlockType.__normal:
-                scale.x = 0.3f;
-                break;
-            case BlockType.__long:
-                scale.x = 3f;
-                break;
-            default:
-                string msg = "Invalid block type. type: " + __type.ToString();
-                throw new System.Exception(msg);
-        }
-        transform.localScale = scale;
-
         __power = Random.Range(2, 4);
         __number_text.text = __power.ToString();
     }
