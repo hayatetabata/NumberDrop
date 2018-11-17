@@ -74,6 +74,7 @@ public class Player : BaseObject {
             case "Block":
                 __power -= c.GetComponent<Block>().__power;
                 __score += __power;
+                if (__score <= 0) { __score = 0; }
                 break;
             default:
                 string msg = "Invalid base object is entered";
