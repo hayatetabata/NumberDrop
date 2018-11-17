@@ -68,11 +68,11 @@ public class Player : BaseObject {
     {
         switch (c.tag) {
             case "Elixer":
-                this.__power += c.GetComponent<Elixer>().__power;
+                __power += c.GetComponent<Elixer>().__power;
                 __score += __power;
                 break;
             case "Block":
-                this.__power -= c.GetComponent<Block>().__power;
+                __power -= c.GetComponent<Block>().__power;
                 __score += __power;
                 break;
             default:
