@@ -25,7 +25,7 @@ public class Player : BaseObject {
         __number_text.text = __power.ToString();
 
         Vector3 scale = transform.localScale;
-        scale.x = scale.y = 1.5f + __power * 0.1f;
+        scale.x = scale.y = 0.2f + __power * 0.01f;
         transform.localScale = scale;
     }
 
