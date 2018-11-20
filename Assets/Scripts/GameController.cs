@@ -30,7 +30,6 @@ public class GameController : MonoBehaviour {
 
     public void OverGame()
     {
-        StopGenerators();
         StopAllObjects();
 
         score.gameObject.SetActive(false);
@@ -43,13 +42,11 @@ public class GameController : MonoBehaviour {
         PlayerPrefs.SetInt(__player_prefs_key, __respawn_count);
     }
 
-    void StopGenerators()
-    {
-        GameObject.FindObjectOfType<WaveGenerator>().__generatable = false;
-    }
-
     void StopAllObjects()
     {
+        FindObjectOfType<WaveGenerator>().__generatable = false;
+        FindObjectOfType<GarbageCollector>().__is_running = false;
+
         string[] tags = {"Elixer", "Block"};
         foreach (string tagName in tags) {
             GameObject[] objects = GameObject.FindGameObjectsWithTag(tagName);

@@ -27,6 +27,9 @@ public class Player : BaseObject {
         Vector3 scale = transform.localScale;
         scale.x = scale.y = 0.2f + __power * 0.01f;
         transform.localScale = scale;
+
+        Vector2 dist = new Vector2(0f, 1f);
+        Move(dist, __speed);
     }
 
     void FixedUpdate()

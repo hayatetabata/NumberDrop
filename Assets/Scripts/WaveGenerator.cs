@@ -1,18 +1,19 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
 using UnityEngine;
 using Constants;
 
 public class WaveGenerator : MonoBehaviour {
 
     public float __emittion_span;
-    public float __fixed_y_coodinate;
     public bool __generatable = true;
+    public GameObject __player;
+    float __y_coordinate;
     float __elasped_time;
 
     // Update is called once per frame
     void Start() {
+        __y_coordinate = __player.transform.position.y + 10f;
+
         List<int> choicedMap = ChoiceMap();
         List<ObjectMeta> metaMap = ToMetaMap(choicedMap);
         metaMap.ForEach(Generate);
@@ -21,6 +22,8 @@ public class WaveGenerator : MonoBehaviour {
     void Update () {
         __elasped_time += Time.deltaTime;
         if (__generatable && __elasped_time > __emittion_span) {
+            __y_coordinate = __player.transform.position.y + 10f;
+
             List<int> choicedMap = ChoiceMap(Random.Range(2, 5));
             List<ObjectMeta> metaMap = ToMetaMap(choicedMap);
             metaMap.ForEach(Generate);
@@ -115,7 +118,7 @@ public class WaveGenerator : MonoBehaviour {
             default:
                 throw new System.Exception("Invalid index: " + index);
         }
-        return new Vector3(x, __fixed_y_coodinate, 0);
+        return new Vector3(x, __y_coordinate, 0);
     }
 
     void ResetTime()
