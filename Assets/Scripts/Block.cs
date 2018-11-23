@@ -9,6 +9,10 @@ public class Block : BaseObject {
     {
         __power = Random.Range(2, 4);
         __number_text.text = __power.ToString();
+
+        Tool.Palette palette = Tool.ColorUtility.GetPalette(__power);
+        __number_text.color = palette.text;
+        GetComponent<SpriteRenderer>().color = palette.background;
     }
 
     // Update is called once per frame
