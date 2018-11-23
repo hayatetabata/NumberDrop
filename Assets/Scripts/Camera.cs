@@ -15,7 +15,7 @@ public class Camera : MonoBehaviour {
 	void Update () {
         try {
             Vector3 pos = transform.position;
-            pos.y = __player.transform.position.y;
+            pos.y = __player.transform.position.y +2f;
             transform.position = pos;
         } catch (MissingReferenceException e) {
             if (e.Message.Contains("The object of type 'GameObject'")) {
