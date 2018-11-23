@@ -7,18 +7,9 @@ public class Player : BaseObject {
     public GameController gameController;
 
     Vector2 __touch_src;
-    float __mix_x;
-    float __max_x;
+    float __mix_x = -3f;
+    float __max_x = 3f;
     int __score = 0;
-
-    // Initialize properties
-    void Start()
-    {
-        //TODO
-        //Specify both minX and maxX coodinate by screen width and player radius
-        __mix_x = -3f;
-        __max_x = 3f;
-    }
 
     // Update is called once per frame
     void Update () {
