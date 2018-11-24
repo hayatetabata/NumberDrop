@@ -36,7 +36,8 @@ public class Player : BaseObject {
 
             Vector2 newPos = transform.position;
             newPos.x += diff;
-            transform.position = WithinScreen(newPos);
+            //transform.position = WithinScreen(newPos);
+            transform.position = Vector3.Lerp(transform.position, WithinScreen(newPos), 0.8f);
 
             __touch_src = touchDist;
         }
@@ -45,7 +46,7 @@ public class Player : BaseObject {
         }
 
         __elasped_time += Time.deltaTime;
-        __speed = Mathf.Clamp(0.1f + __acceleration * __elasped_time, 0.1f, 0.2f);
+        __speed = Mathf.Clamp(0.05f + __acceleration * __elasped_time, 0.01f, 0.1f);
     }
 
     float ToScreenScale(float src) {
