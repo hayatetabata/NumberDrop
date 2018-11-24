@@ -6,7 +6,7 @@ public class GarbageCollector : MonoBehaviour {
     public bool __is_running = true;
     public float __speed;
 
-    void FixedUpdate()
+    void Update()
     {
         if (__is_running) {
             Vector2 dist = new Vector2(0f, 1f);

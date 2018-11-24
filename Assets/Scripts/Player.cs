@@ -21,31 +21,28 @@ public class Player : BaseObject {
 
         Vector2 dist = new Vector2(0f, 1f);
         Move(dist, __speed);
-    }
 
-    void FixedUpdate()
-    {
+        //Controll player
         string touchType = TouchDetector.Detect();
         if (touchType == TouchEventKeys.IsTouched) {
             if (__touch_src == new Vector2()) {
                 __touch_src = TouchDetector.GetTouchPosition();
             }
-            Vector2 dist = TouchDetector.GetTouchPosition();
-            float diff = ToScreenScale(dist.x - __touch_src.x);
+            Vector2 touchDist = TouchDetector.GetTouchPosition();
+            float diff = ToScreenScale(touchDist.x - __touch_src.x);
 
             Vector2 newPos = transform.position;
             newPos.x += diff;
             transform.position = WithinScreen(newPos);
 
-            __touch_src = dist;
+            __touch_src = touchDist;
         }
         if (touchType == TouchEventKeys.NotTouched) {
             __touch_src = new Vector2();
         }
     }
 
-    float ToScreenScale(float src)
-    {
+    float ToScreenScale(float src) {
         return src / 100;
     }
 
