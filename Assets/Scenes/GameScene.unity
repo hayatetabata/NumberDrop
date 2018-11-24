@@ -306,7 +306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   __power: 1
-  __speed: 0.1
+  __speed: 0.07
   __number_text: {fileID: 419112575}
   gameController: {fileID: 597188407}
 --- !u!50 &185773121
@@ -759,7 +759,7 @@ GameObject:
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: PlayerCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1009,7 +1009,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0076168eee7dc4575a81c59e0acb9b9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  __emittion_span: 0.5
+  __emittion_span: 0.2
   __generatable: 1
   __player: {fileID: 185773116}
 --- !u!1 &1002814439
@@ -1720,7 +1720,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   __is_running: 1
-  __speed: 0.1
+  __speed: 0.05
 --- !u!4 &1661482481
 Transform:
   m_ObjectHideFlags: 0
