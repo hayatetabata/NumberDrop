@@ -44,7 +44,7 @@ public class Player : BaseObject {
             __touch_src = new Vector2();
         }
 
-        __speed = Mathf.Clamp(__speed + __acceleration * Time.deltaTime, 0.01f, 0.1f);
+        __speed = Mathf.Clamp(__speed + __acceleration * Time.deltaTime, 0.01f, 0.15f);
     }
 
     float ToScreenScale(float src) {
