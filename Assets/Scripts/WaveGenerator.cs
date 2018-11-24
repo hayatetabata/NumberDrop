@@ -14,7 +14,7 @@ public class WaveGenerator : MonoBehaviour {
 
     // Update is called once per frame
     void Start() {
-        __y_coordinate = __player.transform.position.y + 10f;
+        __y_coordinate = __player.transform.position.y + 7f;
 
         List<int> choicedMap = ChoiceMap();
         List<ObjectMeta> metaMap = ToMetaMap(choicedMap, __player.GetComponent<Player>().__power);
@@ -24,7 +24,8 @@ public class WaveGenerator : MonoBehaviour {
     void Update () {
         __elasped_time += Time.deltaTime;
         if (__generatable && __elasped_time > __emittion_span) {
-            __y_coordinate = __player.transform.position.y + 10f;
+            System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
+            __y_coordinate += 2f;
 
             List<int> choicedMap = ChoiceMap(__offset);
             List<ObjectMeta> metaMap = ToMetaMap(choicedMap, __player.GetComponent<Player>().__power);
