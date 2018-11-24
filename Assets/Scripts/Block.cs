@@ -7,7 +7,6 @@ public class Block : BaseObject {
 
     void Start()
     {
-        __power = Random.Range(2, 4);
         __number_text.text = __power.ToString();
 
         Tool.Palette palette = Tool.ColorUtility.GetPalette(__power);

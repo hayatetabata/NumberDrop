@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class Player : BaseObject {
 
@@ -10,6 +11,8 @@ public class Player : BaseObject {
     float __mix_x = -3f;
     float __max_x = 3f;
     int __score = 0;
+    float __elasped_time;
+    float __acceleration = 0.005f;
 
     // Update is called once per frame
     void Update () {
@@ -40,6 +43,9 @@ public class Player : BaseObject {
         if (touchType == TouchEventKeys.NotTouched) {
             __touch_src = new Vector2();
         }
+
+        __elasped_time += Time.deltaTime;
+        __speed = Mathf.Clamp(0.1f + __acceleration * __elasped_time, 0.1f, 0.2f);
     }
 
     float ToScreenScale(float src) {

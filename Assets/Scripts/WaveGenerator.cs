@@ -9,13 +9,15 @@ public class WaveGenerator : MonoBehaviour {
     public GameObject __player;
     float __y_coordinate;
     float __elasped_time;
+    int __offset = 2;
+    int __max_wave_offset = 5;
 
     // Update is called once per frame
     void Start() {
         __y_coordinate = __player.transform.position.y + 10f;
 
         List<int> choicedMap = ChoiceMap();
-        List<ObjectMeta> metaMap = ToMetaMap(choicedMap);
+        List<ObjectMeta> metaMap = ToMetaMap(choicedMap, __player.GetComponent<Player>().__power);
         metaMap.ForEach(Generate);
     }
 
@@ -24,9 +26,10 @@ public class WaveGenerator : MonoBehaviour {
         if (__generatable && __elasped_time > __emittion_span) {
             __y_coordinate = __player.transform.position.y + 10f;
 
-            List<int> choicedMap = ChoiceMap(Random.Range(2, 5));
-            List<ObjectMeta> metaMap = ToMetaMap(choicedMap);
+            List<int> choicedMap = ChoiceMap(__offset);
+            List<ObjectMeta> metaMap = ToMetaMap(choicedMap, __player.GetComponent<Player>().__power);
             metaMap.ForEach(Generate);
+            __offset = __offset >= __max_wave_offset ? 2 : __offset + 1;
 
             ResetTime();
         }
@@ -49,32 +52,40 @@ public class WaveGenerator : MonoBehaviour {
         }
         GameObject prefab = Resources.Load<GameObject>(prefabPath);
         GameObject obj = Instantiate(prefab, meta.pos, Quaternion.identity);
+        if (meta.type == ObjectsKey.block) {
+            obj.GetComponent<Block>().__power = meta.power;
+        }
     }
 
     //Create emittion map
     //0: empty, 1: block, 2: elixir
     List<int> ChoiceMap(int mapType = 1)
     {
-        List<int> map = new List<int>();
-        for (int i = 1; i <= 5; i++) { map.Add(ObjectsKey.empty); }
+        List<int> map = new List<int>{ 0, 0, 0, 0, 0 };
         switch(mapType) {
             case 1:
-                map = new List<int> {0, 2, 0, 0, 0};
+                map = new List<int> { 0, 0, 0, 0, 0 };
                 break;
             case 2:
-                map = new List<int> { 1, 1, 1, 1, 1 };
+                for (int i = 0; i < 2; i++) {
+                    int index = Random.Range(0, 4);
+                    map[index] = 2;
+                }
                 break;
             case 3:
-                map = new List<int> { 0, 1, 0, 2, 1 };
+                for (int i = 0; i < 3; i++) {
+                    int index = Random.Range(0, 4);
+                    map[index] = Random.Range(1, 2);
+                }
                 break;
             case 4:
-                map = new List<int> { 0, 2, 0, 1, 1 };
+                for (int i = 0; i < 2; i++) {
+                    int index = Random.Range(0, 4);
+                    map[index] = 1;
+                }
                 break;
             case 5:
-                map = new List<int> { 0, 2, 0, 2, 1 };
-                break;
-            case 6:
-                map = new List<int> { 0, 2, 0, 0, 2 };
+                map = new List<int> { 1, 1, 1, 1, 1 };
                 break;
             default:
                 throw new System.Exception("Invalid map type: " + mapType.ToString());
@@ -82,7 +93,7 @@ public class WaveGenerator : MonoBehaviour {
         return map;
     }
 
-    List<ObjectMeta> ToMetaMap(List<int> map)
+    List<ObjectMeta> ToMetaMap(List<int> map, int power)
     {
         List<ObjectMeta> metaMap = new List<ObjectMeta>();
         int index = 0;
@@ -90,6 +101,10 @@ public class WaveGenerator : MonoBehaviour {
             ObjectMeta meta = new ObjectMeta();
             meta.type = type;
             meta.pos = IndexToPos(index);
+
+            int min = (power - 5) <= 0 ? 1 : power - 5;
+            meta.power = Random.Range(min, power + 5);
+
             metaMap.Add(meta);
             index++;
         }
@@ -138,5 +153,6 @@ namespace Constants {
     public class ObjectMeta {
         public int type = 0;
         public Vector3 pos;
+        public int power = 1;
     }
 }
