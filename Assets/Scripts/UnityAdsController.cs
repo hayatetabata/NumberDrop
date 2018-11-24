@@ -2,7 +2,7 @@
 using UnityEngine.Monetization;
 
 public class UnityAdsController : MonoBehaviour{
-    bool __testMode = true;
+    public bool __testMode = true;
     string __placement_id = "video";
 
 #if UNITY_IOS
