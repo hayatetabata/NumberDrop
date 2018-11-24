@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour {
     public Canvas modal;
     public Canvas score;
+    public UnityAdsController adsController;
 
     int __respawn_count = 0;
     const int __max_respawn_count = 3;
@@ -20,11 +21,13 @@ public class GameController : MonoBehaviour {
     {
         __respawn_count += 1;
         if (__respawn_count >= __max_respawn_count) {
-            //Show Ads
+            adsController.ShowAd();
             Reset();
-        } else {
-            PlayerPrefs.SetInt(__player_prefs_key, __respawn_count);
+            SceneManager.LoadScene("HomeScene");
+            return;
         }
+
+        PlayerPrefs.SetInt(__player_prefs_key, __respawn_count);
         SceneManager.LoadScene("GameScene");
     }
 
