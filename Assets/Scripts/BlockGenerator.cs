@@ -35,7 +35,7 @@ public class BlockGenerator : BaseObjectGenerator {
     protected void Generate(Vector2 position)
     {
         GameObject prefab = GetPrefab();
-        GameObject obj = Instantiate(prefab, position, Quaternion.identity);
+        Instantiate(prefab, position, Quaternion.identity);
     }
 
     protected override string LoadPrefabPath()
