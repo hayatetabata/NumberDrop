@@ -11,7 +11,6 @@ public class Player : BaseObject {
     float __mix_x = -3f;
     float __max_x = 3f;
     int __score = 0;
-    float __elasped_time;
     float __acceleration = 0.005f;
 
     // Update is called once per frame
@@ -45,8 +44,7 @@ public class Player : BaseObject {
             __touch_src = new Vector2();
         }
 
-        __elasped_time += Time.deltaTime;
-        __speed = Mathf.Clamp(0.05f + __acceleration * __elasped_time, 0.01f, 0.1f);
+        __speed = Mathf.Clamp(__speed + __acceleration * Time.deltaTime, 0.01f, 0.1f);
     }
 
     float ToScreenScale(float src) {

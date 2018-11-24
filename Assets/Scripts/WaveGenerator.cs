@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using Constants;
 
@@ -8,7 +9,6 @@ public class WaveGenerator : MonoBehaviour {
     public bool __generatable = true;
     public GameObject __player;
     float __y_coordinate;
-    float __elasped_time;
     int __offset = 2;
     int __max_wave_offset = 5;
 
@@ -19,12 +19,11 @@ public class WaveGenerator : MonoBehaviour {
         List<int> choicedMap = ChoiceMap();
         List<ObjectMeta> metaMap = ToMetaMap(choicedMap, __player.GetComponent<Player>().__power);
         metaMap.ForEach(Generate);
+        StartCoroutine("GenerateWave");
     }
 
-    void Update () {
-        __elasped_time += Time.deltaTime;
-        if (__generatable && __elasped_time > __emittion_span) {
-            System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
+    IEnumerator GenerateWave() {
+        while (__generatable) {
             __y_coordinate += 2f;
 
             List<int> choicedMap = ChoiceMap(__offset);
@@ -32,9 +31,9 @@ public class WaveGenerator : MonoBehaviour {
             metaMap.ForEach(Generate);
             __offset = __offset >= __max_wave_offset ? 2 : __offset + 1;
 
-            ResetTime();
+            yield return new WaitForSeconds(__emittion_span);
         }
-	}
+    }
 
     void Generate(ObjectMeta meta)
     {
@@ -135,12 +134,6 @@ public class WaveGenerator : MonoBehaviour {
                 throw new System.Exception("Invalid index: " + index);
         }
         return new Vector3(x, __y_coordinate, 0);
-    }
-
-    void ResetTime()
-    {
-        __elasped_time = 0f;
-        Debug.Log("Wave's elasped time has been reset.");
     }
 }
 

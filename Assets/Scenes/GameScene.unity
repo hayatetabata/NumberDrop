@@ -306,7 +306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   __power: 1
-  __speed: 0.07
+  __speed: 0.08
   __number_text: {fileID: 419112575}
   gameController: {fileID: 597188407}
 --- !u!50 &185773121
