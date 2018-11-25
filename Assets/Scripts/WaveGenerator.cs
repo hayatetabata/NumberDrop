@@ -8,14 +8,13 @@ public class WaveGenerator : MonoBehaviour {
     public float __emittion_span;
     public bool __generatable = true;
     public GameObject __player;
-    float __y_coordinate;
+    float __y_coordinate = 7f;
+    float __y_coodinate_span = 4f;
     int __offset = 2;
     int __max_wave_offset = 5;
 
     // Update is called once per frame
     void Start() {
-        __y_coordinate = __player.transform.position.y + 7f;
-
         List<int> choicedMap = ChoiceMap();
         List<ObjectMeta> metaMap = ToMetaMap(choicedMap, __player.GetComponent<Player>().__power);
         metaMap.ForEach(Generate);
@@ -24,7 +23,7 @@ public class WaveGenerator : MonoBehaviour {
 
     IEnumerator GenerateWave() {
         while (__generatable) {
-            __y_coordinate += 2f;
+            __y_coordinate += __y_coodinate_span;
 
             List<int> choicedMap = ChoiceMap(__offset);
             List<ObjectMeta> metaMap = ToMetaMap(choicedMap, __player.GetComponent<Player>().__power);
