@@ -38,3 +38,7 @@ sysinfo.txt
 # Unity Ads files
 Assets/Plugins*
 Assets/UnityAds*
+
+# For test
+Assets/Scenes/TestBoard.unity
+Assets/Scenes/TestBoard.unity.meta
