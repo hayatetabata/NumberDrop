@@ -35,8 +35,7 @@ public class Player : BaseObject {
 
             Vector2 newPos = transform.position;
             newPos.x += diff;
-            //transform.position = WithinScreen(newPos);
-            transform.position = Vector3.Lerp(transform.position, WithinScreen(newPos), 0.8f);
+            transform.position = WithinScreen(newPos);
 
             __touch_src = touchDist;
         }
@@ -48,7 +47,7 @@ public class Player : BaseObject {
     }
 
     float ToScreenScale(float src) {
-        return src / 100;
+        return src / 70;
     }
 
     Vector2 WithinScreen(Vector2 srcPos)
