@@ -152,9 +152,9 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.NumberFallDown.ProductName
+    Android: com.NumberBlockBreaker.ShokuTaku
     Standalone: com.Company.ProductName
-    iOS: com.NumberFallDown.ProductName
+    iOS: com.NumberBlockBreaker.ShokuTaku
   buildNumber: {}
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 16
