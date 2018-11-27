@@ -39,6 +39,13 @@ sysinfo.txt
 Assets/Plugins*
 Assets/UnityAds*
 
+# Firebase plugins
+Assets/Editor Default Resources*
+Assets/Firebase*
+Assets/Parse*
+Assets/PlayServicesResolver*
+Assets/StreamingAssets*
+
 # For test
 Assets/Scenes/TestBoard.unity
 Assets/Scenes/TestBoard.unity.meta
