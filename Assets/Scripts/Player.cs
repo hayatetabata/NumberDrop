@@ -17,10 +17,12 @@ public class Player : BaseObject {
     void Update () {
         __number_text.text = __power.ToString();
 
+        // Scale radius
         Vector3 scale = transform.localScale;
         scale.x = scale.y = 0.2f + __power * 0.01f;
         transform.localScale = scale;
 
+        // Move up
         Vector2 dist = new Vector2(0f, 1f);
         Move(dist, __speed);
 
