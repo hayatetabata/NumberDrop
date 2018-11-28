@@ -1022,7 +1022,6 @@ GameObject:
   - component: {fileID: 1002814440}
   - component: {fileID: 1002814443}
   - component: {fileID: 1002814442}
-  - component: {fileID: 1002814441}
   - component: {fileID: 1002814444}
   m_Layer: 5
   m_Name: BestScore
@@ -1049,19 +1048,6 @@ RectTransform:
   m_AnchoredPosition: {x: -71, y: 183.90001}
   m_SizeDelta: {x: 582.5, y: 192.6}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1002814441
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1002814439}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 953e001c9f94b4b26a47db8c052bbefb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  __score: 0
-  __show_best: 0
 --- !u!114 &1002814442
 MonoBehaviour:
   m_ObjectHideFlags: 0
