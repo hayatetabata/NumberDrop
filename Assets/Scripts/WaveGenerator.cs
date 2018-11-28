@@ -5,13 +5,13 @@ using Constants;
 
 public class WaveGenerator : MonoBehaviour {
 
-    public float __emittion_span;
     public bool __generatable = true;
     public GameObject __player;
     float __y_coordinate = 7f;
     float __y_coodinate_span = 2.3f;
     int __offset = 2;
     int __max_wave_offset = 5;
+    float __player_last_exist;
 
     // Update is called once per frame
     void Start() {
@@ -19,18 +19,21 @@ public class WaveGenerator : MonoBehaviour {
         List<ObjectMeta> metaMap = ToMetaMap(choicedMap, __player.GetComponent<Player>().__power);
         metaMap.ForEach(Generate);
         StartCoroutine("GenerateWave");
+        __player_last_exist = __player.transform.position.y;
     }
 
     IEnumerator GenerateWave() {
         while (__generatable) {
-            __y_coordinate += __y_coodinate_span;
+            if (__player_last_exist + 2f < __player.transform.position.y) {
+                __player_last_exist = __player.transform.position.y;
+                __y_coordinate += __y_coodinate_span;
 
-            List<int> choicedMap = ChoiceMap(__offset);
-            List<ObjectMeta> metaMap = ToMetaMap(choicedMap, __player.GetComponent<Player>().__power);
-            metaMap.ForEach(Generate);
-            __offset = __offset >= __max_wave_offset ? 2 : __offset + 1;
-
-            yield return new WaitForSeconds(__emittion_span);
+                List<int> choicedMap = ChoiceMap(__offset);
+                List<ObjectMeta> metaMap = ToMetaMap(choicedMap, __player.GetComponent<Player>().__power);
+                metaMap.ForEach(Generate);
+                __offset = __offset >= __max_wave_offset ? 2 : __offset + 1;
+            }
+            yield return null;
         }
     }
 
