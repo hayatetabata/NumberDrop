@@ -9,7 +9,7 @@ public class WaveGenerator : MonoBehaviour {
     public bool __generatable = true;
     public GameObject __player;
     float __y_coordinate = 7f;
-    float __y_coodinate_span = 4f;
+    float __y_coodinate_span = 2.3f;
     int __offset = 2;
     int __max_wave_offset = 5;
 
