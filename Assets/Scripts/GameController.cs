@@ -7,6 +7,7 @@ public class GameController : MonoBehaviour {
     public UnityAdsController adsController;
 
     int __respawn_count = 0;
+    int __score = 0;
     const int __max_respawn_count = 3;
     const string __player_prefs_key = "respawn_count";
 
@@ -34,6 +35,9 @@ public class GameController : MonoBehaviour {
     public void OverGame()
     {
         StopAllObjects();
+        if (IsHighScore(__score)) {
+            PlayerPrefs.SetInt("highScore", __score);
+        }
 
         score.gameObject.SetActive(false);
         modal.gameObject.SetActive(true);
@@ -56,5 +60,18 @@ public class GameController : MonoBehaviour {
                 obj.GetComponent<BaseObject>().__speed = 0f;
             }
         }
+    }
+
+    bool IsHighScore(int score) {
+        int highScore = 0;
+        if (PlayerPrefs.HasKey("highScore")) {
+            highScore = PlayerPrefs.GetInt("highScore");
+        }
+
+        return score > highScore;
+    }
+
+    public void SetScore(int score) {
+        __score = score;
     }
 }

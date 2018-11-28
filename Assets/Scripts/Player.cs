@@ -78,6 +78,7 @@ public class Player : BaseObject {
 
         if (__power <= 0) {
             Destroy(gameObject);
+            gameController.SetScore(__score);
             gameController.OverGame();
         }
         UpdateScore(__score);
