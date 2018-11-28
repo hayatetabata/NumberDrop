@@ -48,7 +48,6 @@ public class GameController : MonoBehaviour {
     void StopAllObjects()
     {
         FindObjectOfType<WaveGenerator>().__generatable = false;
-        FindObjectOfType<GarbageCollector>().__is_running = false;
 
         string[] tags = {"Elixer", "Block"};
         foreach (string tagName in tags) {
