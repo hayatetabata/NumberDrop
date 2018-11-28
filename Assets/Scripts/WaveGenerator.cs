@@ -101,7 +101,7 @@ public class WaveGenerator : MonoBehaviour {
             meta.type = type;
             meta.pos = IndexToPos(index);
 
-            int randPower = Random.Range(power - 5, power + 2);
+            int randPower = Random.Range(power - 5, power + 3);
             meta.power = Mathf.Clamp(randPower, 1, power + 5);
 
             metaMap.Add(meta);
