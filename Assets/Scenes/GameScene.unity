@@ -1010,7 +1010,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0076168eee7dc4575a81c59e0acb9b9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  __emittion_span: 0.2
   __generatable: 1
   __player: {fileID: 185773116}
 --- !u!1 &1002814439
